@@ -6,21 +6,14 @@ import { recipeData } from '../recipeData';
   selector: 'app-recipe-list',
   standalone: false,
   templateUrl: './recipe-list.component.html',
-  styleUrl: './recipe-list.component.css',
+  styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [];
-  selected: Boolean = false;
-  selectedRecipe: Recipe | null = null;
 
   constructor() {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.recipes = recipeData;
-  }
-
-  onSelect(recipe: Recipe) {
-    this.selectedRecipe = recipe;
-    this.selected = true;
   }
 }

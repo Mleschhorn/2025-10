@@ -1,30 +1,18 @@
-<h2>Recetas Uniandes</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Receta</th>
-      <th>Imagen</th>
-      <th>Porciones</th>
-      <th>Tiempo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let recipe of recipes">
-      <td>
-        <a [routerLink]="['/recipe', recipe.id]">
-          {{ recipe.nombre }}
-        </a>
-      </td>
-      <td>
-        <img
-          class="recipe-img"
-          [src]="recipe.imagen"
-          [alt]="recipe.nombre"
-          width="150"
-        />
-      </td>
-      <td>{{ recipe.porciones }}</td>
-      <td>{{ recipe.tiempo_minutos }} min</td>
-    </tr>
-  </tbody>
-</table>
+<div class="container-fluid py-4" style="background-color: #ffc0cb;">
+  <h2 class="text-center mb-4">Recetas uniandes</h2>
+
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+      <div class="col" *ngFor="let recipe of recipes">
+        <div class="card h-100 shadow-sm">
+          <img [src]="recipe.imagen" class="card-img-top img-fluid" [alt]="recipe.nombre" />
+          <div class="card-body">
+            <h5 class="card-title">{{ recipe.nombre }}</h5>
+            <p><strong>Porciones:</strong> {{ recipe.porciones }}</p>
+            <a [routerLink]="['/recipe', recipe.id]" class="btn btn-primary">Ver la receta</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
